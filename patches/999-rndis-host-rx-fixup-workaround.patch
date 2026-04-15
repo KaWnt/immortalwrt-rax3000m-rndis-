@@ -1,8 +1,5 @@
-`patches/999-rndis-host-rx-fixup-workaround.patch`
-
-```diff
---- a/package/kernel/linux/files/drivers/net/usb/rndis_host.c
-+++ b/package/kernel/linux/files/drivers/net/usb/rndis_host.c
+--- a/drivers/net/usb/rndis_host.c
++++ b/drivers/net/usb/rndis_host.c
 @@ -128,7 +128,7 @@ int rndis_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
  		skb2 = skb_clone(skb, GFP_ATOMIC);
  		if (unlikely(!skb2))
